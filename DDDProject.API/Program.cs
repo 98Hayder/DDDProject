@@ -1,3 +1,4 @@
+using DDDProject.Domain.Profiles;
 using DDDProject.Infrastructure.DbContexts;
 using Microsoft.EntityFrameworkCore;
 

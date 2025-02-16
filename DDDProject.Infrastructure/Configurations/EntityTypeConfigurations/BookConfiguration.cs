@@ -15,7 +15,8 @@ namespace DDDProject.Domain.Configurations.EntityTypeConfigurations
             builder.Property(b => b.Title)
                 .IsRequired()
                 .HasMaxLength(100);
-
+            builder.Property(b => b.Quantity)
+                        .IsRequired();
             builder.Property(b => b.Author)
                 .IsRequired()
                 .HasMaxLength(100);
