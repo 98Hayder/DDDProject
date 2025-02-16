@@ -1,4 +1,14 @@
+using DDDProject.Infrastructure.DbContexts;
+using Microsoft.EntityFrameworkCore;
+
 var builder = WebApplication.CreateBuilder(args);
+
+
+// Configure DbContext
+builder.Services.AddDbContext<ApplicationDbContext>(options =>
+    options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
+// Configure AutoMapper
+builder.Services.AddAutoMapper(typeof(MappingProfile));
 
 // Add services to the container.
 
