@@ -1,10 +1,5 @@
 ﻿using DDDProject.Domain.Dtos.AuthDto;
 using DDDProject.Domain.Dtos;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace DDDProject.Application.Services.Auth
 {
