@@ -1,7 +1,7 @@
-﻿using DDDProject.Application.IServices.Auth;
-using DDDProject.Domain.Dtos.AuthDto;
+﻿using DDDProject.Domain.Dtos.AuthDto;
 using DDDProject.Domain.Dtos;
 using Microsoft.AspNetCore.Mvc;
+using DDDProject.Application.Services.Auth;
 
 namespace DDDProject.API.Controllers
 {

@@ -10,7 +10,6 @@ using System.Linq;
 using System.Security.Claims;
 using System.Text;
 using System.Threading.Tasks;
-using DDDProject.Application.IServices.Auth;
 using DDDProject.Domain.Entities;
 
 namespace DDDProject.Application.Services.Auth

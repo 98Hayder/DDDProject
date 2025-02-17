@@ -6,7 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace DDDProject.Application.IServices.Auth
+namespace DDDProject.Application.Services.Auth
 {
     public interface IAuthService
     {

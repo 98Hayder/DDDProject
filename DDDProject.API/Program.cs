@@ -1,4 +1,3 @@
-using DDDProject.Application.IServices.Auth;
 using DDDProject.Application.Services.Auth;
 using DDDProject.Domain.IRepositories.Auth;
 using DDDProject.Domain.Profiles;
