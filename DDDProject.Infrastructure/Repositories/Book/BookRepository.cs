@@ -1,10 +1,7 @@
 ﻿using AutoMapper;
 using DDDProject.Infrastructure.DbContexts;
-using BookstoreAPI.Dtos;
-using BookstoreAPI.Dtos.BookDto;
-using BookstoreAPI.Entities;
 using Microsoft.EntityFrameworkCore;
-using Microsoft.IdentityModel.Tokens;
+using DDDProject.Domain.IRepositories.Book;
 
 namespace DDDProject.Infrastructure.Repositories.Book
 {

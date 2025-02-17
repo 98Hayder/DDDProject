@@ -1,7 +1,7 @@
 ﻿using BookstoreAPI.Dtos.CartDto;
 using BookstoreAPI.Dtos;
 
-namespace DDDProject.Domain.Repositories.Cart
+namespace DDDProject.Domain.IRepositories.Cart
 {
     public interface ICartRepository
     {

@@ -1,7 +1,7 @@
 ﻿using BookstoreAPI.Dtos.AuthDto;
 using BookstoreAPI.Dtos;
 
-namespace DDDProject.Domain.Repositories.Login
+namespace DDDProject.Domain.IRepositories.Login
 {
     public interface IAuthRepository
     {

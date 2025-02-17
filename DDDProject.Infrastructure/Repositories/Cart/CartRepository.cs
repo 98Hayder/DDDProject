@@ -1,11 +1,7 @@
 ﻿using AutoMapper;
 using DDDProject.Infrastructure.DbContexts;
-using BookstoreAPI.Dtos;
-using BookstoreAPI.Dtos.CartDto;
-using BookstoreAPI.Entities;
 using Microsoft.EntityFrameworkCore;
-using System.Linq;
-using System.Threading.Tasks;
+using DDDProject.Domain.IRepositories.Cart;
 
 namespace DDDProject.Infrastructure.Repositories.Cart
 {

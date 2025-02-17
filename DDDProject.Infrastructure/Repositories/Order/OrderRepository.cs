@@ -1,10 +1,7 @@
 ﻿using AutoMapper;
 using DDDProject.Infrastructure.DbContexts;
-using BookstoreAPI.Dtos;
-using BookstoreAPI.Dtos.OrderDto;
-using BookstoreAPI.Entities;
-using BookstoreAPI.Enums;
 using Microsoft.EntityFrameworkCore;
+using DDDProject.Domain.IRepositories.Order;
 
 namespace DDDProject.Infrastructure.Repositories.Order
 {

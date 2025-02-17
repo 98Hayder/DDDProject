@@ -1,8 +1,6 @@
-﻿using AutoMapper;
-using DDDProject.Infrastructure.DbContexts;
-using BookstoreAPI.Dtos;
-using BookstoreAPI.Dtos.LogDto;
+﻿using DDDProject.Infrastructure.DbContexts;
 using Microsoft.EntityFrameworkCore;
+using DDDProject.Domain.IRepositories.Log;
 
 namespace DDDProject.Infrastructure.Repositories.Log
 {

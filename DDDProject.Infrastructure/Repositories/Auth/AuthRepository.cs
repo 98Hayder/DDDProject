@@ -1,12 +1,10 @@
 ﻿using DDDProject.Infrastructure.DbContexts;
-using BookstoreAPI.Dtos.AuthDto;
-using BookstoreAPI.Dtos;
 using Microsoft.IdentityModel.Tokens;
 using System.IdentityModel.Tokens.Jwt;
 using System.Security.Claims;
 using System.Text;
 using Microsoft.EntityFrameworkCore;
-using BookstoreAPI.Entities;
+using DDDProject.Domain.IRepositories.Login;
 
 namespace DDDProject.Infrastructure.Repositories.Login
 {

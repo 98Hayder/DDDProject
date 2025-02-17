@@ -1,7 +1,7 @@
 ﻿using BookstoreAPI.Dtos.GenreDto;
 using BookstoreAPI.Dtos;
 
-namespace DDDProject.Domain.Repositories.Genre
+namespace DDDProject.Domain.IRepositories.Genre
 {
     public interface IGenreRepository
     {

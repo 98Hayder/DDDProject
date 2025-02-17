@@ -1,8 +1,6 @@
-﻿using BookstoreAPI.Dtos.ProfileUserDto;
-using BookstoreAPI.Dtos;
-using Microsoft.EntityFrameworkCore;
-using AutoMapper;
+﻿using AutoMapper;
 using DDDProject.Infrastructure.DbContexts;
+using DDDProject.Domain.IRepositories.ProfileUser;
 
 namespace DDDProject.Infrastructure.Repositories.ProfileUser
 {

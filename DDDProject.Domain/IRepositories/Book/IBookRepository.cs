@@ -1,7 +1,7 @@
 ﻿using BookstoreAPI.Dtos.BookDto;
 using BookstoreAPI.Dtos;
 
-namespace DDDProject.Domain.Repositories.Book
+namespace DDDProject.Domain.IRepositories.Book
 {
     public interface IBookRepository
     {

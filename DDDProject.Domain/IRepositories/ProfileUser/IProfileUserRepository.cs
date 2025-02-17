@@ -1,7 +1,7 @@
 ﻿using BookstoreAPI.Dtos.ProfileUserDto;
 using BookstoreAPI.Dtos;
 
-namespace DDDProject.Domain.Repositories.ProfileUser
+namespace DDDProject.Domain.IRepositories.ProfileUser
 {
     public interface IProfileUserRepository
     {

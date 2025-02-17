@@ -1,7 +1,7 @@
 ﻿using BookstoreAPI.Dtos.LogDto;
 using BookstoreAPI.Dtos;
 
-namespace DDDProject.Domain.Repositories.Log
+namespace DDDProject.Domain.IRepositories.Log
 {
     public interface ILogRepository
     {

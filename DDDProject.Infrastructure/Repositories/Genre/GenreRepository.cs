@@ -1,9 +1,7 @@
 ﻿using AutoMapper;
 using DDDProject.Infrastructure.DbContexts;
-using BookstoreAPI.Dtos;
-using BookstoreAPI.Dtos.BookDto;
-using BookstoreAPI.Dtos.GenreDto;
 using Microsoft.EntityFrameworkCore;
+using DDDProject.Domain.IRepositories.Genre;
 
 namespace DDDProject.Infrastructure.Repositories.Genre
 {

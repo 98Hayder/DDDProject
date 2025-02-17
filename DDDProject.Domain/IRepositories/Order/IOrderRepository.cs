@@ -2,7 +2,7 @@
 using BookstoreAPI.Dtos;
 using BookstoreAPI.Enums;
 
-namespace DDDProject.Domain.Repositories.Order
+namespace DDDProject.Domain.IRepositories.Order
 {
     public interface IOrderRepository
     {
