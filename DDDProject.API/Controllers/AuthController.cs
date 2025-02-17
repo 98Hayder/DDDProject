@@ -3,7 +3,7 @@ using DDDProject.Domain.Dtos.AuthDto;
 using DDDProject.Domain.Dtos;
 using Microsoft.AspNetCore.Mvc;
 
-namespace DDDProject.API_.Controllers
+namespace DDDProject.API.Controllers
 {
     public class AuthController : ControllerBase
     {

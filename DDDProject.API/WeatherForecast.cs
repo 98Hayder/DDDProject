@@ -1,4 +1,4 @@
-namespace DDDProject.API_
+namespace DDDProject.API
 {
     public class WeatherForecast
     {

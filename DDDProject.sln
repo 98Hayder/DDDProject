@@ -3,13 +3,13 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.11.35208.52
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DDDProject.API.", "DDDProject.API\DDDProject.API..csproj", "{466BC088-52DF-4AE9-9AFF-D6AFB9388F13}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DDDProject.API", "DDDProject.API\DDDProject.API.csproj", "{466BC088-52DF-4AE9-9AFF-D6AFB9388F13}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DDDProject.Application", "DDDProject.Application\DDDProject.Application.csproj", "{A4625171-6519-4E5E-B36C-22DDDE177B77}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DDDProject.Application", "DDDProject.Application\DDDProject.Application.csproj", "{A4625171-6519-4E5E-B36C-22DDDE177B77}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DDDProject.Domain", "DDDProject.Domain\DDDProject.Domain.csproj", "{C67315B1-700C-450F-ACB6-35694E45DEC2}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DDDProject.Domain", "DDDProject.Domain\DDDProject.Domain.csproj", "{C67315B1-700C-450F-ACB6-35694E45DEC2}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DDDProject.Infrastructure", "DDDProject.Infrastructure\DDDProject.Infrastructure.csproj", "{E6D2BA21-AF5E-48DE-B72B-0F74A041AB93}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DDDProject.Infrastructure", "DDDProject.Infrastructure\DDDProject.Infrastructure.csproj", "{E6D2BA21-AF5E-48DE-B72B-0F74A041AB93}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

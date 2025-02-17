@@ -89,7 +89,7 @@ namespace DDDProject.Application.Services.Auth
             {
                 FullName = registerForm.FullName,
                 UserName = registerForm.UserName,
-                Password = registerForm.Password,
+                Password = BCrypt.Net.BCrypt.HashPassword(registerForm.Password),
                 RoleID = 2
             };
             var createdUser = _authRepository.Register(newUser);
