@@ -2,7 +2,7 @@
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
-namespace DDDProject.Domain.Configurations.EntityTypeConfigurations
+namespace DDDProject.Infrastructure.Configurations.EntityTypeConfigurations
 {
     public class OrderConfiguration : IEntityTypeConfiguration<Order>
     {

@@ -2,7 +2,7 @@
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 using Microsoft.EntityFrameworkCore;
 
-namespace DDDProject.Domain.Configurations.EntityTypeConfigurations
+namespace DDDProject.Infrastructure.Configurations.EntityTypeConfigurations
 {
     public class RevokedTokenConfiguration : IEntityTypeConfiguration<RevokedToken>
     {

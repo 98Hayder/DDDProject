@@ -1,10 +1,10 @@
 ﻿using AutoMapper;
-using BookstoreAPI.DbContexts;
+using DDDProject.Infrastructure.DbContexts;
 using BookstoreAPI.Dtos;
 using BookstoreAPI.Dtos.LogDto;
 using Microsoft.EntityFrameworkCore;
 
-namespace BookstoreAPI.Repositories.Log
+namespace DDDProject.Infrastructure.Repositories.Log
 {
     public class LogRepository: ILogRepository
     {

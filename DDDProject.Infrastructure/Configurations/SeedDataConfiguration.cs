@@ -2,7 +2,7 @@
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 using Microsoft.EntityFrameworkCore;
 
-namespace DDDProject.Domain.Configurations
+namespace DDDProject.Infrastructure.Configurations
 {
     public class SeedDataConfiguration : IEntityTypeConfiguration<UserRole>, IEntityTypeConfiguration<User>
     {

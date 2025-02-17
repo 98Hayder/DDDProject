@@ -1,5 +1,5 @@
-﻿using DDDProject.Domain.Configurations;
-using DDDProject.Domain.Configurations.EntityTypeConfigurations;
+﻿using DDDProject.Infrastructure.Configurations;
+using DDDProject.Infrastructure.Configurations.EntityTypeConfigurations;
 using DDDProject.Domain.Entities;
 using Microsoft.EntityFrameworkCore;
 using System;
