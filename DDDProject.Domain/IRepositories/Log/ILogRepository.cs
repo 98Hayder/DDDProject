@@ -1,10 +1,10 @@
-﻿using BookstoreAPI.Dtos.LogDto;
-using BookstoreAPI.Dtos;
+﻿//using BookstoreAPI.Dtos.LogDto;
+//using BookstoreAPI.Dtos;
 
-namespace DDDProject.Domain.IRepositories.Log
-{
-    public interface ILogRepository
-    {
-        Task<PaginatedResultDto<Entities.Logging>> GetLogAsync(LogFilterForm filter);
-    }
-}
+//namespace DDDProject.Domain.IRepositories.Log
+//{
+//    public interface ILogRepository
+//    {
+//        Task<PaginatedResultDto<Entities.Logging>> GetLogAsync(LogFilterForm filter);
+//    }
+//}

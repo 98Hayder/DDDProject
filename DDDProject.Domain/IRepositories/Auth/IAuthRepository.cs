@@ -1,14 +1,13 @@
-﻿using BookstoreAPI.Dtos.AuthDto;
-using BookstoreAPI.Dtos;
+﻿using DDDProject.Domain.Entities;
 
-namespace DDDProject.Domain.IRepositories.Login
+namespace DDDProject.Domain.IRepositories.Auth
 {
     public interface IAuthRepository
     {
-        MessageDto<LoginResponse> Login(LoginForm loginForm);
-
-        MessageDto<LoginResponse> Register(RegisterForm registerForm);
-        MessageDto<string> Logout(string token);
+        User? Login(string userName, string password);
+        User Register(User newUser);
+        bool Logout(string token);
+        User? GetUserByUserName(string userName);
 
     }
 }

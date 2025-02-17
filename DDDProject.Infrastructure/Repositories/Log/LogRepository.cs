@@ -1,44 +1,44 @@
-﻿using DDDProject.Infrastructure.DbContexts;
-using Microsoft.EntityFrameworkCore;
-using DDDProject.Domain.IRepositories.Log;
+﻿//using DDDProject.Infrastructure.DbContexts;
+//using Microsoft.EntityFrameworkCore;
+//using DDDProject.Domain.IRepositories.Log;
 
-namespace DDDProject.Infrastructure.Repositories.Log
-{
-    public class LogRepository: ILogRepository
-    {
-        private readonly ApplicationDbContext _context;
+//namespace DDDProject.Infrastructure.Repositories.Log
+//{
+//    public class LogRepository: ILogRepository
+//    {
+//        private readonly ApplicationDbContext _context;
 
-        public LogRepository(ApplicationDbContext context)
-        {
-            _context = context;
-        }
+//        public LogRepository(ApplicationDbContext context)
+//        {
+//            _context = context;
+//        }
 
-        public async Task<PaginatedResultDto<Entities.Logging>> GetLogAsync(LogFilterForm filter)
-        {
-            int currentPage = Math.Max(filter.PageNumber ?? 1, 1);
-            int currentPageSize = Math.Max(filter.PageSize ?? 10, 1);
-            var query = _context.Logs.AsQueryable();
+//        public async Task<PaginatedResultDto<Entities.Logging>> GetLogAsync(LogFilterForm filter)
+//        {
+//            int currentPage = Math.Max(filter.PageNumber ?? 1, 1);
+//            int currentPageSize = Math.Max(filter.PageSize ?? 10, 1);
+//            var query = _context.Logs.AsQueryable();
 
-            int totalRecords = await query.CountAsync();
-            int totalPages = (int)Math.Ceiling(totalRecords / (double)currentPageSize);
+//            int totalRecords = await query.CountAsync();
+//            int totalPages = (int)Math.Ceiling(totalRecords / (double)currentPageSize);
 
-            var log = await query
-                     .OrderByDescending(c => c.Id)
-                    .Skip((currentPage - 1) * currentPageSize)
-                    .Take(currentPageSize)
-                    .ToListAsync();
+//            var log = await query
+//                     .OrderByDescending(c => c.Id)
+//                    .Skip((currentPage - 1) * currentPageSize)
+//                    .Take(currentPageSize)
+//                    .ToListAsync();
 
 
-            return new PaginatedResultDto<Entities.Logging>
-            {
-                TotalRecords = totalRecords,
-                TotalPages = totalPages,
-                PageNumber = currentPage,
-                PageSize = currentPageSize,
-                Data = log,
-            };
+//            return new PaginatedResultDto<Entities.Logging>
+//            {
+//                TotalRecords = totalRecords,
+//                TotalPages = totalPages,
+//                PageNumber = currentPage,
+//                PageSize = currentPageSize,
+//                Data = log,
+//            };
 
-        }
+//        }
 
-    }
-}
+//    }
+//}

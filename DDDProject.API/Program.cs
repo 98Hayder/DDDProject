@@ -1,9 +1,15 @@
+using DDDProject.Application.IServices.Auth;
+using DDDProject.Application.Services.Auth;
+using DDDProject.Domain.IRepositories.Auth;
 using DDDProject.Domain.Profiles;
 using DDDProject.Infrastructure.DbContexts;
+using DDDProject.Infrastructure.Repositories.Auth;
 using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
 
+builder.Services.AddScoped<IAuthRepository, AuthRepository>();
+builder.Services.AddScoped<IAuthService, AuthService>();
 
 // Configure DbContext
 builder.Services.AddDbContext<ApplicationDbContext>(options =>
