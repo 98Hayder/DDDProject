@@ -27,7 +27,8 @@ namespace DDDProject.Infrastructure.Configurations.EntityTypeConfigurations
                 .HasColumnType("decimal(18,2)");
 
             builder.Property(b => b.IsAvailable)
-                .HasDefaultValue(true);
+                .HasComputedColumnSql("CASE WHEN AvailableQuantity > 0 THEN 1 ELSE 0 END");
+
 
             builder.Property(u => u.BookImage).IsRequired(false);
 

@@ -1,14 +1,13 @@
-﻿using BookstoreAPI.Dtos.BookDto;
-using BookstoreAPI.Dtos;
+﻿using DDDProject.Domain.Entities;
 
 namespace DDDProject.Domain.IRepositories.Book
 {
     public interface IBookRepository
     {
-        Task<PaginatedResultDto<BookDto>> GetBooksAsync(BookFilterForm filter);
-        Task<MessageDto<BookDto>> GetBookByIdAsync(int id);
-        Task<MessageDto<BookDto>> AddBookAsync(BookForm bookForm);
-        Task<MessageDto<BookDto>> UpdateBookAsync(int id, BookForm bookForm);
-        Task<MessageDto<BookDto>> DeleteBookAsync(int id);
+        Task<List<Entities.Book>> GetBooksAsync(Entities.Book Book);
+        Task<Entities.Book> GetBookByIdAsync(int id);
+        Task AddBookAsync(Entities.Book book);
+        Task<Entities.Book> UpdateBookAsync(int id, Entities.Book Book);
+        Task<Entities.Book> DeleteBook(Entities.Book book);
     }
 }
