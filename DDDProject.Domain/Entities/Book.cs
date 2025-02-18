@@ -12,7 +12,6 @@ namespace DDDProject.Domain.Entities
         public bool IsAvailable { get; set; }
         public string? BookImage { get; set; }
         public int AvailableQuantity { get; set; }
-
         public Genre Genre { get; set; }
 
     }
