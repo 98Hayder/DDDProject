@@ -1,10 +1,13 @@
 using DDDProject.API.Middleware;
 using DDDProject.Application.Services.Auth;
+using DDDProject.Application.Services.Book;
 using DDDProject.Domain.Enums;
 using DDDProject.Domain.IRepositories.Auth;
+using DDDProject.Domain.IRepositories.Book;
 using DDDProject.Domain.Profiles;
 using DDDProject.Infrastructure.DbContexts;
 using DDDProject.Infrastructure.Repositories.Auth;
+using DDDProject.Infrastructure.Repositories.Book;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
@@ -16,6 +19,8 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddScoped<IAuthRepository, AuthRepository>();
 builder.Services.AddScoped<IAuthService, AuthService>();
 
+builder.Services.AddScoped<IBookRepository, BookRepository>();
+builder.Services.AddScoped<IBookService, BookService>();
 
 // Add JWT authentication
 builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)

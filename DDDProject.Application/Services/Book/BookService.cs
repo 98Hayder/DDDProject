@@ -1,38 +1,51 @@
-﻿using DDDProject.Domain.Dtos;
+﻿using AutoMapper;
+using DDDProject.Domain.Dtos;
 using DDDProject.Domain.Dtos.BookDto;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using DDDProject.Domain.IRepositories.Book;
+using DDDProject.Domain.ValueObjects;
+
 
 namespace DDDProject.Application.Services.Book
 {
     public class BookService : IBookService
     {
-        public async Task<MessageDto<BookDto>> AddBookAsync(BookForm bookForm)
+        private readonly IBookRepository _bookRepository;
+        private readonly IMapper _mapper;
+
+        public BookService(IBookRepository bookRepository, IMapper mapper)
         {
-            throw new NotImplementedException();
+            _bookRepository = bookRepository;
+            _mapper = mapper;
         }
 
-        public async Task<MessageDto<BookDto>> DeleteBookAsync(int id)
-        {
-            throw new NotImplementedException();
-        }
 
-        public async Task<MessageDto<BookDto>> GetBookByIdAsync(int id)
+        public async Task<PaginatedResultDto<BookDto>> GetBooksAsync(BookFilterForm filterForm)
         {
-            throw new NotImplementedException();
-        }
+            var filter = new BookFilter(
+                filterForm.SearchTerm,
+                filterForm.GenreId,
+                filterForm.IsAvailable,
+                filterForm.MinPrice,
+                filterForm.MaxPrice,
+                filterForm.SortBy,
+                filterForm.IsDescending,
+                filterForm.PageNumber,
+                filterForm.PageSize
+            );
 
-        public async Task<PaginatedResultDto<BookDto>> GetBooksAsync(BookFilterForm filter)
-        {
-            throw new NotImplementedException();
-        }
+            var books = await _bookRepository.GetBooksAsync(filter);
+            var totalRecords = books.Count();
+            var totalPages = (int)Math.Ceiling(totalRecords / (double)filter.PageSize);
+            var bookDtos = _mapper.Map<List<BookDto>>(books);
 
-        public async Task<MessageDto<BookDto>> UpdateBookAsync(int id, BookForm bookForm)
-        {
-            throw new NotImplementedException();
+            return new PaginatedResultDto<BookDto>
+            {
+                TotalRecords = totalRecords,
+                TotalPages = totalPages,
+                PageNumber = filter.PageNumber,
+                PageSize = filter.PageSize,
+                Data = bookDtos
+            };
         }
     }
 }

@@ -5,7 +5,7 @@ using DDDProject.Application.Services.Auth;
 
 namespace DDDProject.API.Controllers
 {
-    public class AuthController : ControllerBase
+    public class AuthController : BaseController
     {
         private readonly IAuthService _authService;
 
