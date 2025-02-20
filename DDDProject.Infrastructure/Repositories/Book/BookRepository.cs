@@ -4,6 +4,7 @@ using Microsoft.EntityFrameworkCore;
 using DDDProject.Domain.IRepositories.Book;
 using DDDProject.Domain.ValueObjects;
 using System.Linq;
+using DDDProject.Domain.Entities;
 
 namespace DDDProject.Infrastructure.Repositories.Book
 {
@@ -14,6 +15,11 @@ namespace DDDProject.Infrastructure.Repositories.Book
         public BookRepository(ApplicationDbContext context, IMapper mapper)
         {
             _context = context;
+        }
+
+        public async Task<Domain.Entities.Book> GetBookByIdAsync(int id)
+        {
+            return await _context.Books.FindAsync(id);
         }
 
         public async Task<IEnumerable<Domain.Entities.Book>> GetBooksAsync(BookFilter filter)
@@ -56,13 +62,19 @@ namespace DDDProject.Infrastructure.Repositories.Book
                 "price" => filter.IsDescending ? query.OrderByDescending(c => c.Price) : query.OrderBy(c => c.Price),
                 _ => filter.IsDescending ? query.OrderByDescending(c => c.Id) : query.OrderBy(c => c.Id)
             };
-            return  await query
+            return await query
                 .Skip((filter.PageNumber - 1) * filter.PageSize)
                 .Take(filter.PageSize)
                 .ToListAsync();
         }
 
 
+
+        public async Task<bool> ExistsAsync(string title) =>
+            await _context.Books.AnyAsync(b => b.Title == title);
+
+        public async Task<Genre> GetGenreByIdAsync(int genreId) =>
+            await _context.Genres.FindAsync(genreId);
 
     }
 }

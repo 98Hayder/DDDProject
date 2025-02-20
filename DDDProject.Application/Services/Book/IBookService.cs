@@ -11,6 +11,8 @@ namespace DDDProject.Application.Services.Book
     public interface IBookService
     {
      Task<PaginatedResultDto<BookDto>> GetBooksAsync(BookFilterForm filterForm);
+     Task<MessageDto<BookDto>> GetBookByIdAsync(int id);
+
 
     }
 }

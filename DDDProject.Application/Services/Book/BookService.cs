@@ -3,6 +3,8 @@ using DDDProject.Domain.Dtos;
 using DDDProject.Domain.Dtos.BookDto;
 using DDDProject.Domain.IRepositories.Book;
 using DDDProject.Domain.ValueObjects;
+using Microsoft.AspNetCore.Http;
+using Microsoft.EntityFrameworkCore;
 
 
 namespace DDDProject.Application.Services.Book
@@ -36,5 +38,84 @@ namespace DDDProject.Application.Services.Book
                 Data = bookDtos
             };
         }
+
+        public async Task<MessageDto<BookDto>> GetBookByIdAsync(int id)
+        {
+            var book = await _bookRepository.GetBookByIdAsync(id);
+
+            if (book == null)
+            {
+                return new MessageDto<BookDto>
+                {
+                    Success = false,
+                    Message = "الكتاب غير موجود"
+                };
+            }
+
+            var bookDto = _mapper.Map<BookDto>(book);
+
+            return new MessageDto<BookDto>
+            {
+                Success = true,
+                Message = "الكتاب موجود",
+                Data = bookDto
+            };
+        }
+
+
+        public async Task<MessageDto<BookDto>> AddBookAsync(BookForm bookForm)
+        {
+            if (await _bookRepository.ExistsAsync(bookForm.Title))
+                return new MessageDto<BookDto> { Success = false, Message = "الكتاب موجود بالفعل" };
+
+            var genre = await _bookRepository.GetGenreByIdAsync(bookForm.GenreId);
+            if (genre == null)
+                return new MessageDto<BookDto> { Success = false, Message = "الفئة غير موجودة" };
+
+            var imagePath = await SaveImageAsync(bookForm.BookImage);
+
+            var book = _mapper.Map<Entities.Book>(bookForm);
+            book.Genre = genre;
+            book.BookImage = imagePath;
+
+            _context.Books.Add(book);
+            await _context.SaveChangesAsync();
+
+            var bookDto = _mapper.Map<BookDto>(book);
+
+            return new MessageDto<BookDto>
+            {
+                Success = true,
+                Message = "تم إضافة الكتاب بنجاح",
+                Data = bookDto
+            };
+        }
+
+
+        private async Task<string> SaveImageAsync(IFormFile imageFile)
+        {
+            if (imageFile == null || imageFile.Length == 0)
+            {
+                return null;
+            }
+
+            var uploadsFolder = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot", "BookImage");
+            if (!Directory.Exists(uploadsFolder))
+            {
+                Directory.CreateDirectory(uploadsFolder);
+            }
+
+            var uniqueFileName = Guid.NewGuid().ToString() + "_" + imageFile.FileName;
+            var filePath = Path.Combine(uploadsFolder, uniqueFileName);
+
+            using (var fileStream = new FileStream(filePath, FileMode.Create))
+            {
+                await imageFile.CopyToAsync(fileStream);
+            }
+
+            return Path.Combine("BookImage", uniqueFileName);
+        }
+
+
     }
 }
