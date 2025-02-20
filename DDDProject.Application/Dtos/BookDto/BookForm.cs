@@ -14,6 +14,9 @@ namespace DDDProject.Domain.Dtos.BookDto
         public string Author { get; set; } = string.Empty;
 
         [Range(1, int.MaxValue, ErrorMessage = "رقم التصنيف يجب أن يكون أكبر من 0.")]
+
+
+        [Required(ErrorMessage = "الصنف مطلوب")]
         public int GenreId { get; set; }
 
         [Required(ErrorMessage = "السعر مطلوب")]
@@ -29,7 +32,6 @@ namespace DDDProject.Domain.Dtos.BookDto
         public bool IsAvailable { get; set; } = true;
 
         [Required(ErrorMessage = "الصورة مطلوبة")]
-
         public IFormFile? BookImage { get; set; }
 
     }
