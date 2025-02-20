@@ -21,17 +21,8 @@ namespace DDDProject.Application.Services.Book
 
         public async Task<PaginatedResultDto<BookDto>> GetBooksAsync(BookFilterForm filterForm)
         {
-            var filter = new BookFilter(
-                filterForm.SearchTerm,
-                filterForm.GenreId,
-                filterForm.IsAvailable,
-                filterForm.MinPrice,
-                filterForm.MaxPrice,
-                filterForm.SortBy,
-                filterForm.IsDescending,
-                filterForm.PageNumber,
-                filterForm.PageSize
-            );
+            var filter = _mapper.Map<BookFilter>(filterForm);
+
 
             var books = await _bookRepository.GetBooksAsync(filter);
             var totalRecords = books.Count();

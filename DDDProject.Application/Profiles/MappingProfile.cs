@@ -2,6 +2,7 @@
 using DDDProject.Domain.Dtos.BookDto;
 using DDDProject.Domain.Dtos.GenreDto;
 using DDDProject.Domain.Entities;
+using DDDProject.Domain.ValueObjects;
 
 namespace DDDProject.Domain.Profiles
 {
@@ -15,7 +16,7 @@ namespace DDDProject.Domain.Profiles
             .ReverseMap()
             .ForMember(dest => dest.GenreName, opt => opt.MapFrom(src => src.Genre.Name));
             CreateMap<BookForm, Book>().ReverseMap();
-
+            CreateMap<BookFilterForm, BookFilter>(); 
             CreateMap<GenreDto, GenreForm>().ReverseMap();
             CreateMap<GenreDto, Genre>().ReverseMap();
             CreateMap<GenreForm, Genre>().ReverseMap();
