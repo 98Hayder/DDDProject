@@ -34,7 +34,7 @@ namespace DDDProject.Application.Services.Auth
                 };
             }
 
-            var token = GenerateJwtToken(user.UserName, user.UserRole.Role);
+            var token = GenerateJwtToken(user.UserName, user.UserRole.Role, user.Id);
 
             return new MessageDto<LoginResponse>
             {
@@ -43,7 +43,6 @@ namespace DDDProject.Application.Services.Auth
                 {
                     Token = token,
                     RoleName = user.UserRole.Role,
-                    UserId = user.Id
                 }
             };
         }
@@ -99,7 +98,7 @@ namespace DDDProject.Application.Services.Auth
             }
 
             // إنشاء التوكن JWT
-            var token = GenerateJwtToken(createdUser.UserName, createdUser.UserRole.Role);
+            var token = GenerateJwtToken(createdUser.UserName, createdUser.UserRole.Role, createdUser.Id);
             return new MessageDto<LoginResponse>
             {
                 Success = true,
@@ -108,12 +107,11 @@ namespace DDDProject.Application.Services.Auth
                 {
                     Token = token,
                     RoleName = createdUser.UserRole.Role,
-                    UserId = createdUser.Id
                 }
             };
         }
 
-        private string GenerateJwtToken(string userName, string roleName)
+        private string GenerateJwtToken(string userName, string roleName, int Id)
         {
             var tokenHandler = new JwtSecurityTokenHandler();
             var key = Encoding.ASCII.GetBytes(_configuration["Jwt:Key"]);
@@ -123,7 +121,9 @@ namespace DDDProject.Application.Services.Auth
                 Subject = new ClaimsIdentity(new Claim[]
                 {
                     new Claim(ClaimTypes.Name, userName),
-                    new Claim(ClaimTypes.Role, roleName)
+                    new Claim(ClaimTypes.Role, roleName),
+                    new Claim(ClaimTypes.NameIdentifier, Id.ToString()) 
+
                 }),
                 Expires = DateTime.UtcNow.AddHours(10),
                 Issuer = _configuration["Jwt:Issuer"],
