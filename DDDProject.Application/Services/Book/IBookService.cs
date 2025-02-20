@@ -12,7 +12,7 @@ namespace DDDProject.Application.Services.Book
     {
      Task<PaginatedResultDto<BookDto>> GetBooksAsync(BookFilterForm filterForm);
      Task<MessageDto<BookDto>> GetBookByIdAsync(int id);
-
+     Task<MessageDto<BookDto>> AddBookAsync(BookForm bookForm);
 
     }
 }

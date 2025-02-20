@@ -68,6 +68,12 @@ namespace DDDProject.Infrastructure.Repositories.Book
                 .ToListAsync();
         }
 
+        public async Task<Domain.Entities.Book> AddBookAsync(Domain.Entities.Book book)
+        {
+            var addedBook = await _context.Books.AddAsync(book);
+            await _context.SaveChangesAsync();
+            return addedBook.Entity;
+        }
 
 
         public async Task<bool> ExistsAsync(string title)

@@ -14,13 +14,21 @@ namespace DDDProject.Domain.Dtos.BookDto
         public string Author { get; set; } = string.Empty;
 
         [Range(1, int.MaxValue, ErrorMessage = "رقم التصنيف يجب أن يكون أكبر من 0.")]
-        public int? GenreId { get; set; }
+        public int GenreId { get; set; }
 
         [Required(ErrorMessage = "السعر مطلوب")]
         [Range(0.1, 10000, ErrorMessage = "يجب أن يكون السعر بين 0.1 و 10000.")]
         public decimal Price { get; set; }
 
+
+        [Required(ErrorMessage = "الكمية مطلوبة")]
+        [Range(1, int.MaxValue, ErrorMessage = "رقم الكيمة يجب أن يكون أكبر من 0.")]
+
+        public int AvailableQuantity { get; set; 
+        }
         public bool IsAvailable { get; set; } = true;
+
+        [Required(ErrorMessage = "الصورة مطلوبة")]
 
         public IFormFile? BookImage { get; set; }
 

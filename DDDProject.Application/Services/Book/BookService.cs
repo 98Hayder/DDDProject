@@ -68,21 +68,15 @@ namespace DDDProject.Application.Services.Book
             if (await _bookRepository.ExistsAsync(bookForm.Title))
                 return new MessageDto<BookDto> { Success = false, Message = "الكتاب موجود بالفعل" };
 
-            var genre = await _bookRepository.GetGenreByIdAsync(bookForm.GenreId);
-            if (genre == null)
+            if (await _bookRepository.GetGenreByIdAsync(bookForm.GenreId))
                 return new MessageDto<BookDto> { Success = false, Message = "الفئة غير موجودة" };
 
             var imagePath = await SaveImageAsync(bookForm.BookImage);
-
-            var book = _mapper.Map<Entities.Book>(bookForm);
-            book.Genre = genre;
+            var book = _mapper.Map<Domain.Entities.Book>(bookForm);
+            book.GenreId = bookForm.GenreId;
             book.BookImage = imagePath;
-
-            _context.Books.Add(book);
-            await _context.SaveChangesAsync();
-
-            var bookDto = _mapper.Map<BookDto>(book);
-
+            var Addbook = await _bookRepository.AddBookAsync(book);
+            var bookDto = _mapper.Map<BookDto>(Addbook);
             return new MessageDto<BookDto>
             {
                 Success = true,
