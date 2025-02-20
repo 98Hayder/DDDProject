@@ -32,7 +32,6 @@ namespace DDDProject.API.Controllers
         [HttpPost("logout")]
         public IActionResult Logout([FromBody] string token)
         {
-
             var result = _authService.Logout(token);
             return Ok(result);
         }
