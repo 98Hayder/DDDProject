@@ -70,11 +70,17 @@ namespace DDDProject.Infrastructure.Repositories.Book
 
 
 
-        public async Task<bool> ExistsAsync(string title) =>
-            await _context.Books.AnyAsync(b => b.Title == title);
+        public async Task<bool> ExistsAsync(string title)
+        {
+            return await _context.Books.AnyAsync(b => b.Title == title);
+        }
 
-        public async Task<Genre> GetGenreByIdAsync(int genreId) =>
-            await _context.Genres.FindAsync(genreId);
+        public async Task<bool> GetGenreByIdAsync(int genreId)
+        {
+            var genre = await _context.Genres.FindAsync(genreId);
+            return genre != null;
+        }
+
 
     }
 }

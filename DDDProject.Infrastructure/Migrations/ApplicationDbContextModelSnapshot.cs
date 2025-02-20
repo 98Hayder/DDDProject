@@ -45,9 +45,9 @@ namespace DDDProject.Infrastructure.Migrations
                         .HasColumnType("int");
 
                     b.Property<bool>("IsAvailable")
-                        .ValueGeneratedOnAdd()
+                        .ValueGeneratedOnAddOrUpdate()
                         .HasColumnType("bit")
-                        .HasDefaultValue(true);
+                        .HasComputedColumnSql("CASE WHEN AvailableQuantity > 0 THEN 1 ELSE 0 END");
 
                     b.Property<decimal>("Price")
                         .HasColumnType("decimal(18,2)");
@@ -174,7 +174,7 @@ namespace DDDProject.Infrastructure.Migrations
                     b.Property<DateTime>("CreatedAt")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("datetime2")
-                        .HasDefaultValue(new DateTime(2025, 2, 17, 12, 37, 1, 442, DateTimeKind.Local).AddTicks(1807));
+                        .HasDefaultValue(new DateTime(2025, 2, 20, 14, 42, 35, 733, DateTimeKind.Local).AddTicks(890));
 
                     b.Property<int>("Status")
                         .HasMaxLength(50)
@@ -236,7 +236,7 @@ namespace DDDProject.Infrastructure.Migrations
                     b.Property<DateTime>("RevokedAt")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("datetime2")
-                        .HasDefaultValue(new DateTime(2025, 2, 17, 12, 37, 1, 441, DateTimeKind.Local).AddTicks(6884));
+                        .HasDefaultValue(new DateTime(2025, 2, 20, 14, 42, 35, 732, DateTimeKind.Local).AddTicks(5563));
 
                     b.Property<string>("Token")
                         .IsRequired()
@@ -258,7 +258,7 @@ namespace DDDProject.Infrastructure.Migrations
                     b.Property<DateTime>("Created")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("datetime2")
-                        .HasDefaultValue(new DateTime(2025, 2, 17, 12, 37, 1, 441, DateTimeKind.Local).AddTicks(3703));
+                        .HasDefaultValue(new DateTime(2025, 2, 20, 14, 42, 35, 732, DateTimeKind.Local).AddTicks(1531));
 
                     b.Property<string>("FullName")
                         .IsRequired()
@@ -288,18 +288,18 @@ namespace DDDProject.Infrastructure.Migrations
                         new
                         {
                             Id = 1,
-                            Created = new DateTime(2025, 2, 17, 12, 37, 1, 553, DateTimeKind.Local).AddTicks(5526),
+                            Created = new DateTime(2025, 2, 20, 14, 42, 35, 842, DateTimeKind.Local).AddTicks(3620),
                             FullName = "Admin",
-                            Password = "$2a$11$q.ah7XcY1Z9rjAs1DcQOJObzib0HmdBK1ceMzR3FiNGYocW2z7LuG",
+                            Password = "$2a$11$bdyaijLgeyARmrTZ2WjdTe2pF2a.IRGcJRcSSAp6cVp.ezv.h9dB6",
                             RoleID = 1,
                             UserName = "Admin"
                         },
                         new
                         {
                             Id = 2,
-                            Created = new DateTime(2025, 2, 17, 12, 37, 1, 670, DateTimeKind.Local).AddTicks(3237),
+                            Created = new DateTime(2025, 2, 20, 14, 42, 35, 951, DateTimeKind.Local).AddTicks(7625),
                             FullName = "Customer",
-                            Password = "$2a$11$IWzL1uUqAP0JpbDS5w3HLuFg1Rv5lgxamoiB9iG3FqLokxKKNjn4G",
+                            Password = "$2a$11$8nzyjtbedcQ2AUZ8Ydsf.OphGmvvmoXX3ge93mBYwlrZyWwfUwzm.",
                             RoleID = 2,
                             UserName = "Customer"
                         });
